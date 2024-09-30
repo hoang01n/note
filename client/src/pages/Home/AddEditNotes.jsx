@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import TagInput from '../../components/Input/TagInput'
-import { AppContext } from '../../context/AppContext';
-import noteApi from '../../api/BaseAPI';
+import TagInput from '~/components/Input/TagInput'
+import { AppContext } from '~/context/AppContext';
+import noteApi from '@api/BaseAPI';
 
 const AddEditNotes = ({ noteData, type, onClose, fetchNotes }) => {
     // console.log("Current mode :", type); 
@@ -87,7 +87,7 @@ const AddEditNotes = ({ noteData, type, onClose, fetchNotes }) => {
             <div className='flex flex-col gap-2 m-auto '
             >
                 <label htmlFor="" className='input-lable'>Title</label>
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Enter Title' className='w-full p-4 text-lg text-slate-700 bg-slate-100 border border-slate-200 rounded-md outline-none focus:border-blue-500' />
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Enter Title' className='w-full p-4 text-xl font-medium text-slate-900 bg-slate-100 border border-slate-200 rounded-md outline-none focus:border-blue-500' />
             </div>
             <div className='flex flex-col gap-2 mt-4'>
                 <label htmlFor="" className='input-lable'>Content</label>

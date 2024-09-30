@@ -1,7 +1,7 @@
 
 
 import { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../context/authContext';
+import { AuthContext } from '~/context/authContext';
 import { useForm } from 'react-hook-form';
 
 

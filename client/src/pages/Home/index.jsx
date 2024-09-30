@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { MainLayout } from '../../layout/MainLayout';
-import NoteCard from '../../components/card/NoteCard';
+
+import NoteCard from '~/components/card/NoteCard';
 import { MdAdd, MdClose } from 'react-icons/md'
 import Modal from 'react-modal'
 import AddEditNotes from './AddEditNotes';
 // import { Button, Modal } from 'antd';
-import { AppContext } from "../../context/AppContext"
-import noteApi from '../../api/BaseAPI';
-import EmtyCard from '../../components/EmtyCard';
-import ImgSrc from "../../assets/AddNote.svg"
+import { AppContext } from "~/context/AppContext"
+import noteApi from '@api/BaseApi';
+import EmtyCard from '~/components/EmtyCard';
+import ImgSrc from "~/assets/AddNote.svg"
 
-import { useSearch } from '../../Hook/UseSearch';
+import { useSearch } from '~/Hook/UseSearch';
 
 const Home = () => {
   const [notes, setNotes] = useState([]);

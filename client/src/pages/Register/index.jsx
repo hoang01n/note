@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useForm } from "react-hook-form";
 
-import {AuthContext} from '../../context/authContext';
+import {AuthContext} from '~/context/authContext';
 const Register = () => {
     const {
         register,
