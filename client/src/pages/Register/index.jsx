@@ -1,5 +1,7 @@
+
 import React, { useContext } from 'react'
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 import {AuthContext} from '~/context/authContext';
 const Register = () => {
@@ -95,11 +97,11 @@ const Register = () => {
     {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
 </div>
 
-<button type="submit" className="w-full bg-blue-500 mt-3 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
+<button type="submit" className="w-full bg-blue-500 mt-3     hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
     Register
 </button>
 <div className='text-center text-gray-600 mt-4'>
-    <span>Already have an account?</span> <a href="/login" className='whitespace-nowrap font-semibold text-gray-900 hover:underline'>Login</a>
+    <span>Already have an account?</span> <Link to="/login" className='whitespace-nowrap font-semibold text-gray-900 hover:underline'>Login</Link>
 </div>
 </form>
 </div>
