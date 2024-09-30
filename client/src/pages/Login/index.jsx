@@ -98,7 +98,10 @@ const Login = () => {
             </div>
             <p className="text-center text-gray-600">
               Don't have an account?
-              <Link to="/register" className="whitespace-nowrap font-semibold text-gray-900 hover:underline">Sign up</Link>
+              <Link
+               to="/registe" 
+       
+               className="whitespace-nowrap font-semibold text-gray-900 hover:underline">Sign up</Link>
             </p>
           </div>
         </form>

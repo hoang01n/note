@@ -16,7 +16,16 @@ const routersConfig = [
         element: <Login />
     },
     {
+        path: "/loginn",
+        element: <Login />
+    },
+    {
         path: "/register",
+        element: <Register />
+
+    },
+    {
+        path: "/registe",
         element: <Register />
 
     },
