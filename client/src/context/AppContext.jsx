@@ -1,7 +1,7 @@
 import React, { createContext, useState} from 'react'
 import { Modal } from 'antd';
 
-import noteApi from '../api/BaseAPI';
+
 const AppContext= createContext();
 
  const AppProvider =  ({children}) => {
