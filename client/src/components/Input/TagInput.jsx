@@ -5,10 +5,11 @@ const TagInput = ({tags,setTags}) => {
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
     }
-    const handleAddTag = () => {
-        if(inputValue.trim() !== ''){
+    const handleAddTag = (e) => {
+        e.preventDefault();
+        if(inputValue.trim() !== ' '){
             setTags([...tags,inputValue])
-            setInputValue('')
+            setInputValue(' ')
         }
     }
     const handleKeyDown = (e) => {

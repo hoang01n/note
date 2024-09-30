@@ -163,11 +163,6 @@ const Home = () => {
             maxWidth: "600px", // Max width for larger screens
             maxHeight: "90%",
             overflow: "auto"
-            // margin: "3% auto",
-            // // maxWidth: isMobile ? "90%" : "40%", // 90% cho di động, 40% cho desktop
-            // width: isMobile ? "90%" : "40%", // 90% cho di động, 40% cho desktop
-            // maxHeight: "90%",
-            // overflow: "auto"
 
           }
         }}

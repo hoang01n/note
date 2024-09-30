@@ -9,7 +9,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+
     <MainLayout>
 
       <Routes>
@@ -23,7 +23,7 @@ function App() {
         ))}
       </Routes>
     </MainLayout>
-    </BrowserRouter>
+  
   )
 
 }
