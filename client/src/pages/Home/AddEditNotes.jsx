@@ -73,10 +73,7 @@ const AddEditNotes = ({ noteData, type, onClose, fetchNotes }) => {
         }
         setError("")
         if (type === 'edit') {
-            // console.log("Editing note :", noteData);
-          
             editNote();
-            
         }
         else {
             addNotes()

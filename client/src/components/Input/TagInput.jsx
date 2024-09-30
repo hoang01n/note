@@ -7,19 +7,25 @@ const TagInput = ({tags,setTags}) => {
     }
     const handleAddTag = (e) => {
         e.preventDefault();
-        if(inputValue.trim() !== ' '){
+        if(inputValue.trim() !== ''){
             setTags([...tags,inputValue])
-            setInputValue(' ')
+            setInputValue('')
         }
     }
     const handleKeyDown = (e) => {
-        if(e.key === 'Enter' || e.key === ' '){
+        if(e.key === 'Enter' || e.key === ''){
             handleAddTag()
         }
     }
-    const handleRemoveTag = (index) => {
-        const newTags = tags.filter((index) => index !== index)
-        setTags(newTags)
+    // const handleRemoveTag = (index) => {
+        
+    //     const newTags = tags.filter((index) => index !== index)
+    //     setTags(newTags)
+    // }
+    const handleRemoveTag = (index,e) => {
+        e.preventDefault();
+        const newTags = tags.filter((tag, i) => i !== index); // Sửa tên biến từ `index` thành `i`
+        setTags(newTags);
     }
   return (
     <div>
@@ -27,8 +33,8 @@ const TagInput = ({tags,setTags}) => {
         <div className='flex flex-wrap gap-4 mt-3'>
             {tags?.map((tag,index) => (
                 <span key={index} className=' flex items-center gap-2 text-sm text-slate-700 bg-blue-100 border border-slate-200 px-3 py-2 rounded'>
-                    # {tag}
-                    <button className='text-2xl text-slate-700 cursor-pointer' onClick={() => handleRemoveTag(index)}>
+                    #{tag}
+                    <button className='text-2xl text-slate-700 cursor-pointer' onClick={(e) => handleRemoveTag(index,e)}>
                         <MdClose size={15}/>
                     </button>
                 </span>

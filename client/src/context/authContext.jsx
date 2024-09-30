@@ -2,9 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import authApi from '@api/authApi';
 import { Modal } from 'antd';
 import { useNavigate } from 'react-router-dom';
-
 const AuthContext = createContext();
-
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({ token: null, user: null });
   const navigate = useNavigate(); // Correctly using useNavigate hook
