@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import TagInput from '~/components/Input/TagInput'
 import { AppContext } from '~/context/AppContext';
-import noteApi from '@api/BaseApi';
+import noteApi from '@api/noteApi';
 
 const AddEditNotes = ({ noteData, type, onClose, fetchNotes }) => {
     // console.log("Current mode :", type); 

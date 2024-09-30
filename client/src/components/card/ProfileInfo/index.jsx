@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../../context/authContext';
-import { getInitials } from '../../../utils/helper';
+import { AuthContext } from '~/context/authContext';
+import { getInitials } from '~/utils/helper';
 import { Link } from 'react-router-dom';
 
 const ProfileInfo = () => {

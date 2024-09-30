@@ -6,7 +6,7 @@ import Modal from 'react-modal'
 import AddEditNotes from './AddEditNotes';
 // import { Button, Modal } from 'antd';
 import { AppContext } from "~/context/AppContext"
-import noteApi from '@api/BaseApi';
+import noteApi from '@api/noteApi';
 import EmtyCard from '~/components/EmtyCard';
 import ImgSrc from "~/assets/AddNote.svg"
 
