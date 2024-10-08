@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({ token: null, user: null });
-  const navigate = useNavigate(); // Correctly using useNavigate hook
+  const navigate = useNavigate(); 
 
-  // Function to show modal (for success or error messages)
+
   const showModal = (type, title, content, onClose) => {
     Modal[type]({
       title,
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
       const res = await authApi.registerUser(fullname, age, email, password);
       // Show success modal
       showModal('success', 'Registration Successful', ['You have registered successfully.'], () => {
-        navigate("/login") // Redirect to the root path after successful registration
+        navigate("/login") 
       });
       return res.data;
     } catch (error) {
@@ -70,7 +70,6 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('token');
     setAuth({ token: null, user: null });
-    // window.location.href = '/login';
     navigate("/login")
   };
 

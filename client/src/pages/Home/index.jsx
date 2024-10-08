@@ -4,85 +4,49 @@ import NoteCard from '~/components/card/NoteCard';
 import { MdAdd, MdClose } from 'react-icons/md'
 import Modal from 'react-modal'
 import AddEditNotes from './AddEditNotes';
-// import { Button, Modal } from 'antd';
 import { AppContext } from "~/context/AppContext"
-import noteApi from '@api/noteApi';
+import   noteApi from '@api/noteApi';
 import EmtyCard from '~/components/EmtyCard';
 import ImgSrc from "~/assets/AddNote.svg"
-
-import { useSearch } from '~/Hook/UseSearch';
-
 const Home = () => {
-  const [notes, setNotes] = useState([]);
-  // const [newTitle, setNewTitle] = useState('');
-  // const [newContent, setNewContent] = useState('');
-  // const [editingId, setEditingId] = useState(null);
-  // const [search, setSearch] = useState('');  
-  const { search } = useSearch()
-  const { ShowModal } = useContext(AppContext);
-  const isMobile = window.innerWidth < 768;
+  const { ShowModal,notes, fetchNotes } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState({
     isOpen: false,
     type: "add",
     data: null
   });
-
-  const fetchNotes = async () => {
-    try {
-      const res = await noteApi.getNotes();
-
-      setNotes(res.data || []);
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
   useEffect(() => {
     fetchNotes();
     Modal.setAppElement('body');
     return () => { };
   }
-
-    , [])
-
-
+, [])
   const HandleDeleteNote = async (data) => {
     try {
       const res = await noteApi.deleteNote(data._id);
-      //   console.log("delete cuccess ", res.data )
-      // console.log("delete ", res.data.note)
       if (res.data) {
         fetchNotes();
         ShowModal("success", "bạn đã xóa thành cong", ['welcome to back!'], () => { })
       }
-
     }
     catch (err) {
       ShowModal("error", "bạn đã xóa không thành cong", ['welcome to back!'], () => { })
-
     }
   }
   const handleIsPinned = async (noteData) => {
     const noteId = noteData._id;
-    // console.log("noteData:", noteData); 
-    // console.log("noteData id:", noteData._id); 
+
     try {
       const res = await noteApi.updateIsPinnedNote(noteId, { isPinned: !noteData.isPinned });
-
-
-      // console.log("datanote", res.data.note)
       if (res.data && res.data.note) {
-
         ShowModal("success", "Ghi chú đã được cập nhật thành công", ["welcome to back!"], () => { });
-        fetchNotes(); // Gọi fetchNotes để cập nhật danh sách ghi chú
-        // Đóng modal
+        fetchNotes(); 
       }
     } catch (error) {
       console.error("Error:", error);
 
     }
   }
-
   const ModalAdd = () => {
     setIsOpen({
       isOpen: true,
@@ -93,32 +57,21 @@ const Home = () => {
   const handleEdit = (note) => {
     setIsOpen({
       isOpen: true,
-      type: "edit",
+      type: "edit", 
       data: note
     })
   }
-
-  const sortedNotes = [...notes].sort((a, b) => b.isPinned - a.isPinned); // Sắp xếp ghi chú theo isPinned
-  const filteredNotes = sortedNotes.filter(note => {
-    return note.title && note.title.toLowerCase().includes((search || '').toLowerCase());
-  });
-  // const filteredNotes = notes.filter(note => {
-
-  //   console.log('Note Title:', note.title) // Kiểm tra giá trị title
-  //   console.log('Search:', search); // Kiểm tra giá trị search
-  //   return note.title && note.title.toLowerCase().includes((search || '').toLowerCase()); // Kiểm tra note.title có tồn tại không
-  // }
-  // );
+  const sortedNotes = Array.isArray(notes) ?  [...notes].sort((a, b) => b.isPinned - a.isPinned): []; // Sắp xếp ghi chú theo isPinned
   return (
     <>
 
       <div className='container mx-auto relative'>
      
-        {filteredNotes.length > 0 ? (
+        {sortedNotes.length > 0 ? (
 
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8'>
 
-            {filteredNotes.map((note, index) => (
+            {sortedNotes.map((note, index) => (
               <NoteCard
                 // key={note._id}
                 key={index}
@@ -159,8 +112,8 @@ const Home = () => {
           },
           content: {
             margin: "6% auto",
-            width: "90%", // Default width for mobile
-            maxWidth: "600px", // Max width for larger screens
+            width: "90%",
+            maxWidth: "600px", 
             maxHeight: "90%",
             overflow: "auto"
 

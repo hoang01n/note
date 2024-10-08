@@ -1,11 +1,11 @@
 
 import './App.css'
+
 import { MainLayout } from './layout/MainLayout'
 import routersConfig from './routes/config'
 import { Routes, Route , BrowserRouter } from 'react-router-dom'
 
 function App() {
-
 
 
   return (
@@ -23,7 +23,7 @@ function App() {
         ))}
       </Routes>
     </MainLayout>
-  
+   
   )
 
 }

@@ -4,12 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '~/context/authContext';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-
-
-
-
 const Login = () => {
-
   const [error, setError] = useState('');
   const { login ,auth} = useContext(AuthContext);
   const {
@@ -19,10 +14,9 @@ const Login = () => {
   } = useForm();
   const onSubmit = async (e) => {
     // e.preventDefault();
-
     try {
       await login(e.email, e.password);
-      // window.location.href = '/';
+
     } catch (err) {
 
       console.error(err)
@@ -99,7 +93,7 @@ const Login = () => {
             <p className="text-center text-gray-600">
               Don't have an account?
               <Link
-               to="/registe" 
+               to="/register" 
        
                className="whitespace-nowrap font-semibold text-gray-900 hover:underline">Sign up</Link>
             </p>

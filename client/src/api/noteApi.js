@@ -16,7 +16,6 @@ const noteApi = {
     return await axiosClient.put(`api/note/edit-note/${id}`, data,
   );
   },
-
   updateIsPinnedNote: async (id, data) => {
     return await axiosClient.put(`api/note/update-note/${id}`, data,
 );
@@ -30,6 +29,12 @@ const noteApi = {
   getNotes: async () => {
   
     return await axiosClient.get('api/note/notes',
+   
+  );
+  },
+  SearchNote: async (query) => {
+  
+    return await axiosClient.get(`api/note/search?query=${query}`
    
   );
   },

@@ -2,7 +2,6 @@
 import React, { useContext } from 'react'
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
-
 import {AuthContext} from '~/context/authContext';
 const Register = () => {
     const {
@@ -11,14 +10,9 @@ const Register = () => {
         formState: { errors }
     } = useForm();
     const { registerUser,  } = useContext(AuthContext);
-  
     const onSubmit = async (data) => {
-        // console.log("Submitting data:", { ...data, password: '***' });
         try {
             await registerUser(data.fullname, data.age, data.email, data.password);
-            // alert('Registration successful!');
-           
-
         } catch (error) {
             console.error("Registration error:", error);
             alert(`Registration failed: ${error.message}`);
@@ -26,7 +20,6 @@ const Register = () => {
     };
 
     return (
-   
        
 <div className='h-[80vh] mt-[4rem]'>
 
@@ -101,7 +94,7 @@ const Register = () => {
     Register
 </button>
 <div className='text-center text-gray-600 mt-4'>
-    <span>Already have an account?</span> <Link to='/loginn' className='whitespace-nowrap font-semibold text-gray-900 hover:underline'>Login</Link>
+    <span>Already have an account?</span> <Link to='/login' className='whitespace-nowrap font-semibold text-gray-900 hover:underline'>Login</Link>
 </div>
 </form>
 </div>
